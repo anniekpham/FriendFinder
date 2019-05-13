@@ -1,14 +1,13 @@
 const express = require('express')
+const { join } = require('path')
 const app = express()
 
-app.use(express.static(path.join(__dirname, '/public')))
+app.use(express.static(join(__dirname, '/app/public')))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-const apiroutes = require('./app/routing/apiroutes')
-const htmlroutes = require('./app/routing/htmlRoutes')
+// const apiroutes = require('./app/routing/apiroutes')
 
-apiroutes(app)
-htmlroutes(app)
+// apiroutes(app)
 
-app.listen(process.env.PORT || 3000)
+app.listen('3000')
