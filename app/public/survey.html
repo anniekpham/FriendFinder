@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="subtitle">Survey Questions</h1>
+        </div>
+        <div class="aboutyou">
+            <h2>About You</h2>
+            <form>
+                <div class="name">
+                    <label for="name">Name (Require)</label>
+                    <br>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="photo">
+                    <label for="photo">Link to your Photo (Require)</label>
+                    <br>
+                    <input type="text" name="photo" id="photo">
+                </div>
+            </form>
+        </div>
+        <div>
+            <h2>Question 1</h2>
+            <h3>You love being outdoor</h3> 
+            <select name="question" id="question"> Option
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>       
+            <h2>Question 2</h2>
+            <h3>Dogs are better than cats</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 3</h2>
+            <h3>You like organization</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 4</h2>
+            <h3>Empaty is the most important quality in a person</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 5</h2>
+            <h3>The law is always black and white</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 6</h2>
+            <h3>You are into "nerdy" things</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 7</h2>
+            <h3>You like to be surrounded by people</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 8</h2>
+            <h3>You care a lot about what others think of you</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 9</h2>
+            <h3>A little white lie never hurt anyone</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2>Question 10</h2>
+            <h3>You prefers Italian to Asian food</h3>
+            <select name="question" id="question">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <a href="/api/friends">
+        <button>Submit</button>
+        </a>
+    </div>
+    <footer class="footer">
+        <div>
+            <a href="/api/friends">API Friends List</a>
+            <a href="https://github.com/anniekpham/FriendFinder">Github Repo</a>
+        </div>
+    </footer>
+<script src="../data/friends.js"></script>
+</body>
+</html>
