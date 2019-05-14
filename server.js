@@ -20,7 +20,7 @@ const friendslist = [
     }     
 ]
 
-app.use(express.static(join(__dirname, '/app/public')))
+app.use(express.static(join(__dirname, '/app/public/')))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
