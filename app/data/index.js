@@ -31,9 +31,6 @@ let yourinfo = {},
     question8 = document.forms['form']['question8'],
     question9 = document.forms['form']['question9'],
     question10 = document.forms['form']['question10']
-// module.exports = _ => {
-    //     friendslist
-    // }
     
 const yourfriend = totalscore => {
     let min = totalscore[0]
@@ -92,6 +89,7 @@ document.querySelector('.submit').addEventListener('click', () => {
                 parseInt(document.querySelector('#question10').value)
             ]
         }
+        // module.exports = yourinfo
         matching()
         modal.style.display = 'block'
         name.value = ''

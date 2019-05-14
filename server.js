@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 // can't get the friends data when writing data in the friends.js
-// const friends = require('./app/data/friends')
+// const friends = require('./app/data/index')
 const apiroutes = require('./app/routing/apiroutes')
 
 apiroutes(app, friendslist)
