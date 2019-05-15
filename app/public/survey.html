@@ -146,6 +146,125 @@
             <a href="https://github.com/anniekpham/FriendFinder">Github Repo</a>
         </div>
     </footer>
-<script src="./data/index.js"></script>
+<script>
+const {fetch, alert} = window
+
+let yourinfo = {},
+    totalscore = [],
+    name = document.getElementById('name'),
+    photo = document.forms['form']['photo'],
+    modal = document.getElementById("modal"),
+    question1 = document.forms['form']['question1'],
+    question2 = document.forms['form']['question2'],
+    question3 = document.forms['form']['question3'],
+    question4 = document.forms['form']['question4'],
+    question5 = document.forms['form']['question5'],
+    question6 = document.forms['form']['question6'],
+    question7 = document.forms['form']['question7'],
+    question8 = document.forms['form']['question8'],
+    question9 = document.forms['form']['question9'],
+    question10 = document.forms['form']['question10']
+    
+const yourfriend = (totalscore, friends) => {
+    let min = totalscore[0]
+    let minindex = 0
+    for(i = 1; i < totalscore.length; i++) {
+        if(totalscore[i] < min) {
+            minindex = i
+            min = totalscore[i]
+        }
+    }
+    if (totalscore.length === friends.length) {
+        document.querySelector('.friendinfo').innerHTML = `
+        <h1 class='bestmatch'>Best Match</h1>
+        <h2>${friends[minindex].name}</h2>
+        <img src=${friends[minindex].photo} alt="${friends[minindex].name}">
+        `
+    }
+}
+
+// function sometimes returns an empty array a long with the other one and break the matching(can't figure out why)
+const matching = yourinfo => {
+    fetch('/api/friends')
+    .then(r => r.json())
+    .then(friends => {
+        friends.forEach(friend => {
+            let length = Math.min(friend.scores.length,yourinfo.scores.length)
+            let remainarr = []
+            for (i = 0; i < length; i++) {
+                if(friend.scores[i] != yourinfo.scores[i]) {
+                    remaining = Math.abs(yourinfo.scores[i] - friend.scores[i])
+                    remainarr.push(remaining)
+                }
+            }
+            function getSum(total, num) {
+                return total + num;
+            }
+            totalscore.push(remainarr.reduce(getSum))
+            yourfriend(totalscore, friends)
+        })
+    })
+    .catch(e => console.log(e))
+}
+
+
+document.querySelector('.submit').addEventListener('click', e => {
+    e.preventDefault()
+    if (name.value === '' || photo.value === '' || question1.selectedIndex < 1 || question2.selectedIndex < 1 || question3.selectedIndex < 1 || question4.selectedIndex < 1 || question5.selectedIndex < 1 || question6.selectedIndex < 1 || question7.selectedIndex < 1 || question8.selectedIndex < 1 || question9.selectedIndex < 1 || question10.selectedIndex < 1) {
+        alert('Please fill out form')
+    }
+    else {
+        yourinfo = {
+            name: document.querySelector('#name').value,
+            photo: document.querySelector('#photo').value,
+            scores: [
+                parseInt(document.querySelector('#question1').value),
+                parseInt(document.querySelector('#question2').value),
+                parseInt(document.querySelector('#question3').value),
+                parseInt(document.querySelector('#question4').value),
+                parseInt(document.querySelector('#question5').value),
+                parseInt(document.querySelector('#question6').value),
+                parseInt(document.querySelector('#question7').value),
+                parseInt(document.querySelector('#question8').value),
+                parseInt(document.querySelector('#question9').value),
+                parseInt(document.querySelector('#question10').value)
+            ]
+        }
+        console.log(yourinfo)
+        matching(yourinfo)
+        fetch('/api/friends', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: document.querySelector('#name').value,
+                photo: document.querySelector('#photo').value,
+                scores: [
+                    parseInt(document.querySelector('#question1').value),
+                    parseInt(document.querySelector('#question2').value),
+                    parseInt(document.querySelector('#question3').value),
+                    parseInt(document.querySelector('#question4').value),
+                    parseInt(document.querySelector('#question5').value),
+                    parseInt(document.querySelector('#question6').value),
+                    parseInt(document.querySelector('#question7').value),
+                    parseInt(document.querySelector('#question8').value),
+                    parseInt(document.querySelector('#question9').value),
+                    parseInt(document.querySelector('#question10').value)
+                ]
+            })
+        })
+        .then(_ => console.log(yourinfo))
+        .catch(e => console.log(e))
+        modal.style.display = 'block'
+    }
+})
+
+document.getElementsByClassName("close")[0].addEventListener('click', _ => {
+    modal.style.display = 'none'
+})
+
+</script>
+
 </body>
 </html>
